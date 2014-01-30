@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>BudgetApp</title>
+		<title><%= full_title(yield(:title)) %></title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="robots" content="all" />
+		<meta name="MSSmartTagsPreventParsing" content="true" />
+		<meta name="description" content="Budget Planner Application" />
+		<meta name="keywords" content="Budget Planner Finances" />
+		<meta name="author" content="Matt Hinger" />
+		<meta property="og:title" content="Budget Planner Application"/>
+		<meta property="og:site_name" content="Budget Planner"/>
+		<meta property="og:type" content="application" />
+
+		<%= favicon_link_tag '/favicon.ico' %>
+
 		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
 		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		
 		<%= csrf_meta_tags %>
+
+		<%= render 'layouts/shim' %>
 	</head>
 	<body>
-		<%= yield %>
-		<%= debug(params) if Rails.env.development? %>
+		<%= render 'layouts/header' %>
+		<div class="container">
+			<%= yield %>
+			<%= debug(params) if Rails.env.development? %>
+			<%= render 'layouts/footer' %>
+		</div>
 	</body>
 </html>
