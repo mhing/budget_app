@@ -1,0 +1,25 @@
+<h3 class="center">Welcome to your budget planner <%= @user.name %>!</h3>
+<div class="container">
+	<div class="center-nav">
+		<ul class="nav nav-pills sub-nav">
+			<li class="active"><a href=''>Expenses</a></li>
+			<li><a href=''>Income</a></li>
+			<li><a href=''>Budget</a></li>
+		</ul>
+	</div>
+</div>
+<div class="center hero-unit">
+	<div class="row">
+		<div class="col-xs-6">
+			<div class="row">		
+				<%= link_to "+ Add Expense", '', class: "btn btn-large" %>
+			</div>
+			<div class="row">
+				Expense List
+			</div>
+		</div>
+		<div class="col-xs-6">
+			Expense Overview
+		</div>
+	</div>
+</div>
