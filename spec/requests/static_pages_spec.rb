@@ -26,7 +26,7 @@ describe "Static pages" do
     click_link "About"
     expect(page).to have_title(full_title('About'))
     click_link "Budget Planner"
-    click_link "Sign up now!"
+    click_link "Sign up!"
     expect(page).to have_title(full_title('Sign up'))
     click_link "Budget Planner"
     expect(page).to have_title(full_title(''))

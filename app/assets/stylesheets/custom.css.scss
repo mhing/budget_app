@@ -3,6 +3,7 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
+$lightBlue: #00CCFF;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -36,6 +37,10 @@ textarea {
   }
 }
 
+.black-text {
+	color: black;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -57,6 +62,10 @@ h2 {
   font-weight: normal;
   color: $grayLight;
 }
+
+  h3 {
+  	margin-bottom: 30px;
+  }
 
 p {
   font-size: 1.1em;
@@ -195,4 +204,49 @@ input {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
+}
+
+/* Sign up highlight */
+
+.new-user {
+	margin: auto;
+	padding: 25px;
+	text-align: center;
+	font-size: 1.25em;
+	b {
+		font-size: 1.3em;
+	}
+}
+
+/* Sign in button */
+
+.sign-in-button {
+	margin: auto;
+	padding-bottom: 40px;
+	padding-top: 20px;
+	text-align: center;
+	font-size: 1.25em;
+}
+
+/* Main screen */
+
+.hero-unit-alternate-background {
+	padding: 60px;
+	margin-bottom: 30px;
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 30px;
+	color: inherit;
+	background-color: $lightBlue;
+	opacity: 0.3;
+    filter: alpha(opacity=30);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+
+.alt-background {
+	background-color: $lightBlue;
+	opacity: 0.3;
+    filter: alpha(opacity=30);
 }
