@@ -4,6 +4,7 @@ BudgetApp::Application.routes.draw do
   root 'sessions#new'
   match '/about', to: 'static_pages#about', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
+  # Temporary, until i can design a cool home page
   #match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
 

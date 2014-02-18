@@ -47,11 +47,59 @@ describe "UserPages" do
 
 	describe "budget home page" do
 		let(:user) { FactoryGirl.create(:user) }
-		before { visit user_path(user) }
+		before do
+			sign_in user
+			visit user_path(user)
+		end
 
 		it { should have_content(user.name) }
 		it { should have_content("Expenses") }
 		it { should have_content("Income") }
 		it { should have_content("Budget") }
+	end
+
+	describe "edit" do
+		let(:user) { FactoryGirl.create(:user) }
+		before do
+			sign_in user
+			visit edit_user_path(user)
+		end
+
+		describe "page" do
+			it { should have_content("Account Settings") }
+			it { should have_title("Edit User") }
+			it { should have_button("Delete My Account") }
+		end
+
+		describe "with invalid information" do
+			before { click_button "Save changes" }
+
+			it { should have_content('error') }
+		end
+
+		describe "with valid information" do
+			let(:new_name)  { "New Name" }
+			let(:new_email) { "new@example.com" }
+			before do
+				fill_in "Name",             with: new_name
+				fill_in "Email",            with: new_email
+				fill_in "Password",         with: user.password
+				fill_in "Confirm Password", with: user.password
+				click_button "Save changes"
+			end
+
+			it { should have_title(new_name) }
+			it { should have_selector('div.alert.alert-success') }
+			it { should have_link('Sign Out', href: signout_path) }
+
+			specify { expect(user.reload.name).to  eq new_name }
+			specify { expect(user.reload.email).to eq new_email }
+		end
+
+		describe "account deletion" do
+			it "should be able to delete their account" do
+				expect { click_button "Delete My Account" }.to change(User, :count).by(-1)
+			end
+		end
 	end
 end
