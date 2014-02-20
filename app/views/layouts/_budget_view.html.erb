@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="col-xs-6">
+		<div class="row">
+			<% if @user.budget %>	
+				<%= render @budget %>
+			<% else %>	
+				<%= link_to "+ Add Budget", "#{user_path}/budget", class: "btn btn-large" %>
+			<% end %>
+		</div>
+	</div>
+	<div class="col-xs-6">
+		Budget Overview
+	</div>
+</div>

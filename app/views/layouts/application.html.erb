@@ -29,7 +29,9 @@
 			<% flash.each do |key, value| %>
 				<%= content_tag(:div, value, class: "alert alert-#{key}") %>
 			<% end %>
+			<p class="center under-construction under-construction-top">Site Under Construction</p>
 			<%= yield %>
+			<p class="center under-construction under-construction-bottom">Site Under Construction</p>
 			<%= render 'layouts/footer' %>
 			<%= debug(params) if Rails.env.development? %>
 		</div>

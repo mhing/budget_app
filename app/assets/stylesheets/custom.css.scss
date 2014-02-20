@@ -3,7 +3,7 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
-$lightBlue: #00CCFF;
+$lightBlue: #0088CC; /*#00CCFF;*/
 $tan: #D2B48C;
 
 @mixin box_sizing {
@@ -133,6 +133,19 @@ footer {
   @include box_sizing;
 }
 
+.under-construction {
+	color: yellow;
+	background-color: $grayDark;
+}
+
+.under-construction-top {
+	margin-bottom: 30px;
+}
+
+.under-construction-bottom {
+	margin-top: 50px;
+}
+
 /* Pill Nav */
 
 .center-nav {
@@ -243,7 +256,7 @@ input {
 	line-height: 30px;
 	color: inherit;
 	background-color: white; // for browser that don't accept alpha in color
-	background-color: rgba(0, 204, 255, 0.4);
+	background-color: rgba(0, 136, 204, 0.6);
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
@@ -273,25 +286,94 @@ input {
 			background-color: white;
 			&:hover {
 				color: white;
-				background-color: green;
 			}
+		}
+	}	
+}
+
+#expense-pill {
+	a {
+		&:hover {
+			background-color: red;
 		}
 	}
 }
 
-#right-pill {
+#income-pill {
 	margin-right: 2em;
+	a {
+		&:hover {
+			background-color: green;
+		}
+	}
 }
 
 .welcome-title {
 	margin-top: 30px;
 }
 
-/* Account delete warning */
+/* Account settings */
+.current-email, .current-name {
+	color: $grayLight;	
+}
+
+.edit-user-container {
+	padding-top: 10px;
+
+	input {
+		width: 75%;
+	}
+
+	.edit-field {
+		margin-bottom: 20px;
+	}
+}
+
 .delete-user-container {
-	padding-top: 50px;
+	padding-top: 10px;
+
+	input {
+		width: 75%;
+	}
+
+	.edit-field {
+		margin-bottom: 20px;
+	}
+}
+
+.header-text-center {
+	text-align: center;
 }
 
 .delete-warning {
 	margin-bottom: 15px;
+}
+
+/* About Page */
+
+.about-body {
+	margin-bottom: 50px;
+}
+
+/* Budget Page */
+
+.budget-display {
+	border: solid;
+	border-width: 2px;
+	border-radius: 3px;
+	background-color: white;
+	color: red;
+	padding: 8px;
+	width: 50%;
+	margin: auto;
+}
+
+.budget-creator {
+	background-color: white; // for browser that don't accept alpha in color
+	background-color: rgba(238, 238, 238, 0.4);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }

@@ -16,6 +16,7 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:budget) }
 
   it { should be_valid }
 
@@ -126,4 +127,16 @@ describe User do
   	its(:remember_token) { should_not be_blank }
   end
 
+  describe "budget association" do
+  	before { @user.save }
+  	let!(:budget) do
+  		FactoryGirl.create(:budget, user: @user, created_at: 1.hour.ago)
+  	end
+
+  	it "should destroy associated budget" do
+  		budget = @user.budget
+  		@user.destroy
+  		expect(Budget.where(id: budget.id)).to be_empty
+  	end
+  end
 end

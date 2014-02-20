@@ -3,21 +3,30 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   def new
-  	@user = User.new
+  	if !signed_in?
+	  	@user = User.new
+	else
+		redirect_to root_url
+	end
   end
 
   def show
+  	@budget = @user.budget
   end
 
   def create
-  	@user = User.new(user_params)
-  	if @user.save
-  		sign_in @user
-  		flash[:success] = "Welcome to Budget Planner!"
-  		redirect_to @user
-  	else
-  		render 'new'
-  	end
+  	if !signed_in?
+	  	@user = User.new(user_params)
+	  	if @user.save
+	  		sign_in @user
+	  		flash[:success] = "Welcome to Budget Planner!"
+	  		redirect_to @user
+	  	else
+	  		render 'new'
+	  	end
+	else
+		redirect_to root_url
+	end
   end
 
   def edit
@@ -46,15 +55,14 @@ class UsersController < ApplicationController
   	end
 
   	# Before filters
-  	def signed_in_user
-  		unless signed_in?
-  			store_location
-	  		redirect_to root_url, notice: "Please sign in."
-	  	end
-  	end
 
   	def correct_user
   		@user = User.find(params[:id])
+  		raise ActiveRecord::RecordNotFound if @user.nil?
   		redirect_to(root_url) unless current_user?(@user)
   	end
+
+  	rescue_from ActiveRecord::RecordNotFound do
+	    redirect_to root_url
+	end
 end

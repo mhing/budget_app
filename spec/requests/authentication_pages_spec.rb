@@ -80,6 +80,19 @@ describe "AuthenticationPages" do
 
 				specify { expect(response).to redirect_to root_url}
 			end
+
+			describe "in the Budgets controller" do
+
+				describe "submitting to the create action" do
+					before { post budgets_path }
+					specify { expect(response).to redirect_to(root_url) }
+				end
+
+				describe "submitting to the destroy action" do
+					before { delete budget_path(FactoryGirl.create(:budget)) }
+					specify { expect(response).to redirect_to(root_url) }
+				end
+			end
 		end
 
 		describe "as wrong user" do

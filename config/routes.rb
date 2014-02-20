@@ -1,12 +1,14 @@
 BudgetApp::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :budgets, only: [:create, :destroy]
   root 'sessions#new'
   match '/about', to: 'static_pages#about', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   # Temporary, until i can design a cool home page
   #match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
+  match '/users/:id/budget', to: 'static_pages#budget', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
