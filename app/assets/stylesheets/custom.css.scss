@@ -38,6 +38,10 @@ textarea {
   }
 }
 
+.top-space {
+	margin-top: 40px;
+}
+
 .black-text {
 	color: black;
 }
@@ -81,14 +85,14 @@ p {
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
-  letter-spacing: -1px;
+  letter-spacing: 2px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
 
   &:hover {
-  color: white;
-  text-decoration: none;
+  	color: white;
+  	text-decoration: none;
   }
 }
 
@@ -291,11 +295,31 @@ input {
 	}	
 }
 
+#budget-pill {
+	a {
+		&:hover {
+			background-color: #0088cc;
+		}
+	}
+}
+
+#budget-pill.active {
+	a {
+		background-color: #0088cc;
+	}
+}
+
 #expense-pill {
 	a {
 		&:hover {
 			background-color: red;
 		}
+	}
+}
+
+#expense-pill.active {
+	a {
+		background-color: red;
 	}
 }
 
@@ -305,6 +329,12 @@ input {
 		&:hover {
 			background-color: green;
 		}
+	}
+}
+
+#income-pill.active {
+	a {
+		background-color: green;
 	}
 }
 
@@ -376,4 +406,8 @@ input {
 	border-radius: 6px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+
+.center-text-field {
+	text-align: center;
 }

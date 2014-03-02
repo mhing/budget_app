@@ -3,8 +3,8 @@
 		<div class="row">
 			<% if @user.budget %>	
 				<%= render @budget %>
-			<% else %>	
-				<%= link_to "+ Add Budget", "#{user_path}/budget", class: "btn btn-large" %>
+			<% else %>
+				<%= link_to "+ Add Budget", new_budget_path, class: "btn btn-large" %>
 			<% end %>
 		</div>
 	</div>

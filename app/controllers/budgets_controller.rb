@@ -1,5 +1,10 @@
 class BudgetsController < ApplicationController
 	before_action :signed_in_user
+	before_action :correct_budget, only: [:edit, :update]
+
+	def new
+		@budget = Budget.new
+	end
 
 	def create
 		@budget = current_user.build_budget(budget_params)
@@ -12,6 +17,18 @@ class BudgetsController < ApplicationController
 		end
 	end
 
+	def edit
+	end
+
+	def update
+		if @budget.update_attributes(budget_params)
+	  		flash[:success] = "Budget updated"
+	  		redirect_to current_user
+	  	else
+	  		render 'edit'
+	  	end
+	end
+
 	def destroy
 	end
 
@@ -19,6 +36,10 @@ class BudgetsController < ApplicationController
 
 		def budget_params
 			params.require(:budget).permit(:amount)
+		end
+
+		def correct_budget
+			@budget = current_user.budget
 		end
 
 end

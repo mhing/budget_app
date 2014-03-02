@@ -2,6 +2,10 @@
 	<ul class="nav nav-pills sub-nav budget-pills">
 		<li id="expense-pill"><a href=''>Expenses</a></li>
 		<li id="income-pill"><a href=''>Income</a></li>
-		<li id="budget-pill" class="active"><a href=''>Budget</a></li>
+		<% if current_page?(edit_user_path) %>
+			<li id="budget-pill"><%= link_to "Budget", current_user %></li>
+		<% else %>
+			<li id="budget-pill" class="active"><a href=''>Budget</a></li>
+		<% end %>
 	</ul>
 </div>
