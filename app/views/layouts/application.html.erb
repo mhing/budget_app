@@ -34,6 +34,7 @@
 			<p class="center under-construction under-construction-bottom">Site Under Construction</p>
 			<%= render 'layouts/footer' %>
 			<%= debug(params) if Rails.env.development? %>
+			<%= debug(request.original_url) if Rails.env.development? %>
 		</div>
 	</body>
 </html>
