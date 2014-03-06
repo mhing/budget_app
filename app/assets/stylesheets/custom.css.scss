@@ -411,3 +411,34 @@ input {
 .center-text-field {
 	text-align: center;
 }
+
+/* expenses */
+.expenses {
+	margin: 20px 0 0 0;
+	list-style: none;
+
+	li {
+		padding: 5px 0 30px 0;
+		border-top: 1px solid #e8e8e8;
+
+		a {
+			color: inherit;
+
+			&:hover {
+				color: white;
+			}
+		}
+	}
+}
+
+.tag {
+	float: left;
+}
+
+.amount {
+	float: right;
+}
+
+.timestamp {
+	
+}

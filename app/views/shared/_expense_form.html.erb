@@ -1,0 +1,8 @@
+<%= form_for(@expense) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<%= f.label :tag %>
+	<%= f.text_field :tag, :value=>(@expense.tag), class: "center-text-field" %>
+	<%= f.label :amount %>
+	<%= f.text_field :amount, :value=>(number_with_precision(@expense.amount, precision: 2)), class: "center-text-field" %>
+	<%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>

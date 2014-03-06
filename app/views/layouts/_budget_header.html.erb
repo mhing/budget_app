@@ -1,11 +1,11 @@
 <div class="row center-nav budget-header">
 	<ul class="nav nav-pills sub-nav budget-pills">
-		<li id="expense-pill"><a href=''>Expenses</a></li>
+		<li id="expense-pill"><%= link_to "Expenses", show_expenses_path, class: "active-toggle" %></li>
 		<li id="income-pill"><a href=''>Income</a></li>
-		<% if current_page?(edit_user_path) %>
-			<li id="budget-pill"><%= link_to "Budget", current_user %></li>
+		<% if current_page?(edit_user_path(@user)) %>
+			<li id="budget-pill"><%= link_to "Budget", show_budget_path, class: "active-toggle" %></li>
 		<% else %>
-			<li id="budget-pill" class="active"><a href=''>Budget</a></li>
+			<li id="budget-pill" class="active"><%= link_to "Budget", show_budget_path, class: "active-toggle" %></li>
 		<% end %>
 	</ul>
 </div>

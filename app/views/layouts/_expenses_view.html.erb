@@ -1,12 +1,12 @@
 <div class="budget-display">
 	<div class="col-md-12">
 		<span class="budget-name">
-			<%= budget.name %>
+			<%= expense.tag %>
 		</span>
 	</div>
 	<div class="col-md-12">
 		<span class="budget-amount">
-			Amount: $<%= number_with_precision(budget.amount, precision: 2) %>
+			Amount: $<%= number_with_precision(expense.amount, precision: 2) %>
 		</span>
 	</div>
 	<div class="col-md-12">
@@ -16,7 +16,7 @@
 	</div>
 	<div class="col-md-12">
 		<span class="budget-edit">
-			<%= link_to "Edit Budget", edit_budget_path, class: "btn" %>
+			<%= link_to "Edit Expense", edit_expense_path(expense), class: "btn" %>
 		</span>
 	</div>
 </div>

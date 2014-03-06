@@ -1,6 +1,6 @@
 class BudgetsController < ApplicationController
 	before_action :signed_in_user
-	before_action :correct_budget, only: [:edit, :update]
+	before_action :correct_budget, only: [:edit, :update, :show]
 
 	def new
 		@budget = Budget.new
@@ -32,10 +32,15 @@ class BudgetsController < ApplicationController
 	def destroy
 	end
 
+	def show
+		@user = current_user
+		render 'show'
+	end
+
 	private
 
 		def budget_params
-			params.require(:budget).permit(:amount)
+			params.require(:budget).permit(:name, :amount)
 		end
 
 		def correct_budget

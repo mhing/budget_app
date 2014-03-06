@@ -5,13 +5,14 @@ class UsersController < ApplicationController
   def new
   	if !signed_in?
 	  	@user = User.new
-	else
-		redirect_to root_url
-	end
+  	else
+  		redirect_to root_url
+  	end
   end
 
   def show
   	@budget = @user.budget
+    redirect_to show_budget_url
   end
 
   def create
@@ -42,9 +43,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-	User.find(params[:id]).destroy
-	flash[:success] = "User deleted."
-	redirect_to root_url
+  	User.find(params[:id]).destroy
+  	flash[:success] = "User deleted."
+  	redirect_to root_url
   end
 
   private 

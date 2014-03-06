@@ -1,0 +1,20 @@
+<div class="row">
+	<%= render 'layouts/budget_header' %>
+	<div class="center hero-unit-alternate-background top-space">
+		<div class="row">
+			<div class="col-xs-6">
+				<div class="row">
+					<%= link_to "+ Add Expense", new_expense_path, class: "btn btn-large" %>
+					<% if (@user.present?) && (@user.budget.expenses.present?)  %>	
+						<ol class="expenses">
+							<%= render @expenses %>
+						</ol>
+					<% end %>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				Expenses Overview
+			</div>
+		</div>
+	</div>
+</div>

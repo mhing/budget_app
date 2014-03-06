@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-xs-6">
 		<div class="row">
-			<% if @user.budget %>	
+			<% if (@user.present?) && (@user.budget.present?)  %>	
 				<%= render @budget %>
 			<% else %>
 				<%= link_to "+ Add Budget", new_budget_path, class: "btn btn-large" %>

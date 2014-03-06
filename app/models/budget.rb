@@ -1,6 +1,10 @@
 class Budget < ActiveRecord::Base
 	belongs_to :user
+
+	has_many :expenses, dependent: :destroy
+
 	validates :user_id, presence: true
+	validates :name, presence: true, length: { maximum: 40 }
 
 	VALID_AMOUNT_REGEX = /\d{0,4}(\.\d{0,2})/
 

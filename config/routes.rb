@@ -1,14 +1,25 @@
 BudgetApp::Application.routes.draw do
-  resources :users
+  resources :users, except: [:new]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :budgets
+  resources :budgets, except: [:show, :edit]
+  resources :expenses, except: [:new, :show]
+  
   root 'sessions#new'
   match '/about', to: 'static_pages#about', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   # Temporary, until i can design a cool home page
   #match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
-  match '/users/:id/budget', to: 'budgets#new', via: 'get'
+  #match '/users/:id/budget', to: 'budgets#new', via: 'get'
+  
+  # these dont work... not sure how to match, maybe get is being used?
+  #match '/budget', to: 'budgets#show', via: 'get'
+  #match '/budget/new', to: 'budgets#new', via: 'get'
+  match '/budget', to: 'budgets#show', via: 'get', as: 'show_budget'
+  match '/budget/edit', to: 'budgets#edit', via: 'get', as: 'edit_budget'
+  match '/budget/expenses', to: 'expenses#show', via: 'get', as: 'show_expenses'
+  match '/budget/expenses/new', to: 'expenses#new', via: 'get', as: 'new_expense'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
