@@ -4,5 +4,13 @@
 	<%= f.text_field :tag, :value=>(@expense.tag), class: "center-text-field" %>
 	<%= f.label :amount %>
 	<%= f.text_field :amount, :value=>(number_with_precision(@expense.amount, precision: 2)), class: "center-text-field" %>
+	<%= f.label :date_occurred %>
+	<% if @expense.date_occurred? %>
+		<!--<%= f.text_field :date_occurred, :value=>(@expense.date_occurred), type: "text", id: "datepicker", class: "center-text-field" %>-->
+		<%= f.text_field :date_occurred, :value=>(@expense.date_occurred), class: "center-text-field" %>
+	<% else %>
+		<!--<%= f.text_field :date_occurred, :value=>(Date.today), type: "text", id: "datepicker", class: "center-text-field" %>-->
+		<%= f.text_field :date_occurred, :value=>(Date.today), class: "center-text-field" %>
+	<% end %>
 	<%= f.submit "Save", class: "btn btn-primary" %>
 <% end %>

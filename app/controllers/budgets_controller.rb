@@ -23,7 +23,7 @@ class BudgetsController < ApplicationController
 	def update
 		if @budget.update_attributes(budget_params)
 	  		flash[:success] = "Budget updated"
-	  		redirect_to current_user
+	  		redirect_to show_budget_path
 	  	else
 	  		render 'edit'
 	  	end

@@ -2,6 +2,7 @@ class Budget < ActiveRecord::Base
 	belongs_to :user
 
 	has_many :expenses, dependent: :destroy
+	has_many :incomes, dependent: :destroy
 
 	validates :user_id, presence: true
 	validates :name, presence: true, length: { maximum: 40 }

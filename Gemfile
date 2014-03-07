@@ -21,6 +21,7 @@ group :development, :test do
     gem 'childprocess', '0.3.9'
 
     gem 'thin'
+    gem 'rails_layout'
 end
 
 group :test do

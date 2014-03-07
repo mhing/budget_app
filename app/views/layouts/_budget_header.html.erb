@@ -1,11 +1,7 @@
-<div class="row center-nav budget-header">
-	<ul class="nav nav-pills sub-nav budget-pills">
-		<li id="expense-pill"><%= link_to "Expenses", show_expenses_path, class: "active-toggle" %></li>
-		<li id="income-pill"><a href=''>Income</a></li>
-		<% if current_page?(edit_user_path(@user)) %>
-			<li id="budget-pill"><%= link_to "Budget", show_budget_path, class: "active-toggle" %></li>
-		<% else %>
-			<li id="budget-pill" class="active"><%= link_to "Budget", show_budget_path, class: "active-toggle" %></li>
-		<% end %>
-	</ul>
+<div class="row center-nav budget-header btn-toolbar sub-nav budget-pills">
+	<div class="btn-group left-btn-group" data-toggle="buttons">
+		<%= link_to "Expenses", show_expenses_path, id: "expense-pill", class: "btn btn-default", role: "button", type: "radio" %>
+		<%= link_to "Income", show_incomes_path, id: "income-pill", class: "btn btn-default", role: "button", type: "radio" %>
+		<%= link_to "Budget", show_budget_path, id: "budget-pill", class: "btn btn-default", role: "button", type: "radio" %>
+	</div>
 </div>

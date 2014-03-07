@@ -17,14 +17,14 @@ class ExpensesController < ApplicationController
 	end
 
 	def edit
-		@expense = @user.budget.expenses.first #figure out how to get the one passed into the path
+		@expense = @expenses.find_by(id: params[:id]) #figure out how to get the one passed into the path
 	end
 
 	def update
-		@expense = @user.budget.expenses.first
+		@expense = @expenses.find_by(id: params[:id])
 		if @expense.update_attributes(expense_params)
 	  		flash[:success] = "Expense updated"
-	  		render 'show'
+	  		redirect_to show_expenses_path
 	  	else
 	  		render 'edit'
 	  	end
@@ -39,7 +39,7 @@ class ExpensesController < ApplicationController
 	private
 
 		def expense_params
-			params.require(:expense).permit(:tag, :amount)
+			params.require(:expense).permit(:tag, :amount, :date_occurred)
 		end
 
 		def correct_information

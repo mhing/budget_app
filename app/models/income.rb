@@ -1,4 +1,4 @@
-class Expense < ActiveRecord::Base
+class Income < ActiveRecord::Base
 	belongs_to :budget
 
 	default_scope -> { order('created_at DESC') }
@@ -13,6 +13,4 @@ class Expense < ActiveRecord::Base
 	validates :amount, presence: true, 
 					   numericality: { greater_than_or_equal_to: 0 }, 
 					   format: { with: VALID_AMOUNT_REGEX }
-
-	validates :date_occurred, presence: true
 end

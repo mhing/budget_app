@@ -1,0 +1,6 @@
+<li>
+	<%= link_to edit_income_path(income) do %>
+		<span class="tag"><%= income.tag %></span>
+		<span class="amount">$<%= number_with_precision(income.amount, precision: 2) %></span>
+	<% end %>
+</li>
