@@ -52,6 +52,10 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
+h1.no-top-padding {
+	padding-top: 0px;
+}
+
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
@@ -270,6 +274,16 @@ input {
     //filter: alpha(opacity=30);
 }
 
+.hero-unit-white {
+	padding: 60px;
+	margin-bottom: 30px;
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 30px;
+	color: inherit;
+	background-color: white; // for browser that don't accept alpha in color
+}
+
 .alt-background {
 	background-color: $lightBlue;
 	opacity: 0.3;
@@ -277,6 +291,10 @@ input {
 }
 
 /* Persistent Budget Nav */
+
+.left-btn-group {
+	padding-left: 45px;
+}
 
 .budget-header {
 	background-color: $grayLighter;
@@ -335,6 +353,7 @@ input {
 }
 
 #expense-pill {
+	margin-left: 45px;
 	a {
 		&:hover {
 			background-color: red;

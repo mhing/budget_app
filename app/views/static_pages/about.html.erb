@@ -1,5 +1,22 @@
 <% provide(:title, 'About') %>
-<h1>About Budget Planner</h1>
-<p class="about-body">
-  Simple budget application to help manage your personal finances. Create a budget, add expenses and sources of income. Check the status of your budget and see expense totals by various tags.<br><br>Temporarily under construction. Features will be added over the course of time.<br>Current feature set: Sign In/Out, Account Management.
-</p>
+
+<div class="row">
+	<% if signed_in? %>
+		<%= render 'layouts/budget_header' %>
+	<% end %>
+	<div class="center hero-unit-white top-space">
+		<p class="about-body">
+			<em>Budget-It</em> is a budget tracking web application to help manage your personal finances. 
+			<br>
+			<br>
+			With <em>Budget-It</em> you can create a budget and add expenses. It also lets you track your sources of income and provides a breakdown of your net income.
+			<br>
+			<br>
+			There is also the option to restart a budget, which will set the start date for a budget to be the current date. This will not remove your past expenses, it simply starts a new period for your budget.
+			<br>
+			<br>
+			View a list of all expenses in the expenses tab. View a list of all incomes in the income tab. Use the expenses and income tabs to also view the Net value of your submitted expenses and incomes. View your budget progress and included expenses in the budget tab.
+		</p>
+
+	</div>
+</div>
