@@ -9,4 +9,12 @@ module ApplicationHelper
 			"#{base_title} | #{page_title}"
 		end
 	end
+
+	def new_income_page?
+		request.fullpath == new_income_path
+	end
+
+	def new_expense_page?
+		request.fullpath == new_expense_path
+	end
 end

@@ -17,12 +17,10 @@ class IncomesController < ApplicationController
 	end
 
 	def edit
-		@income = @incomes.find_by(id: params[:id])
 	end
 
 	def update
-		@income = @incomes.find_by(id: params[:id])
-		if @expense.update_attributes(income_params)
+		if @income.update_attributes(income_params)
 	  		flash[:success] = "Income updated"
 	  		redirect_to show_incomes_path
 	  	else
@@ -33,15 +31,27 @@ class IncomesController < ApplicationController
 	def show
 	end
 
+	def destroy
+		@income.destroy
+		flash[:success] = "Income deleted"
+		redirect_to show_incomes_path
+	end
+
 	private
 
 		def income_params
-			params.require(:income).permit(:tag, :amount)
+			params.require(:income).permit(:tag, :amount, :date_occurred)
 		end
 
 		def correct_information
 			@user = current_user
 			@budget = @user.budget
-			@incomes = @user.budget.incomes
+			if @budget
+				@incomes = @user.budget.incomes
+				@income = @incomes.find_by(id: params[:id])
+			else
+				flash[:warning] = "Please create a budget before adding incomes."
+				redirect_to current_user
+			end
 		end
 end

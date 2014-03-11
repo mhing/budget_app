@@ -1,6 +1,6 @@
 class BudgetsController < ApplicationController
 	before_action :signed_in_user
-	before_action :correct_budget, only: [:edit, :update, :show]
+	before_action :correct_budget, only: [:edit, :update, :show, :destroy]
 
 	def new
 		@budget = Budget.new
@@ -30,6 +30,8 @@ class BudgetsController < ApplicationController
 	end
 
 	def destroy
+		@budget.destroy
+		redirect_to current_user
 	end
 
 	def show

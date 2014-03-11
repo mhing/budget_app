@@ -17,11 +17,9 @@ class ExpensesController < ApplicationController
 	end
 
 	def edit
-		@expense = @expenses.find_by(id: params[:id]) #figure out how to get the one passed into the path
 	end
 
 	def update
-		@expense = @expenses.find_by(id: params[:id])
 		if @expense.update_attributes(expense_params)
 	  		flash[:success] = "Expense updated"
 	  		redirect_to show_expenses_path
@@ -36,6 +34,12 @@ class ExpensesController < ApplicationController
 	def index
 	end
 
+	def destroy
+		@expense.destroy
+		flash[:success] = "Expense deleted"
+		redirect_to show_expenses_path
+	end
+
 	private
 
 		def expense_params
@@ -45,7 +49,13 @@ class ExpensesController < ApplicationController
 		def correct_information
 			@user = current_user
 			@budget = @user.budget
-			@expenses = @user.budget.expenses
+			if @budget
+				@expenses = @user.budget.expenses
+				@expense = @expenses.find_by(id: params[:id])
+			else
+				flash[:warning] = "Please create a budget before adding expenses."
+				redirect_to current_user
+			end
 		end
 
 end

@@ -257,7 +257,7 @@ input {
 /* Main screen */
 
 .hero-unit-alternate-background {
-	padding: 60px;
+	padding: 30px 60px 60px 60px;
 	margin-bottom: 30px;
 	font-size: 18px;
 	font-weight: 200;
@@ -462,6 +462,7 @@ input {
 	text-align: center;
 }
 
+
 /* expenses */
 .expenses {
 	margin: 20px 0 0 0;
@@ -520,4 +521,20 @@ input {
 .expense-container {
 	height: 200px;
 	overflow:auto;
+}
+
+/* net worth well */
+
+.net-worth-well {
+	margin-left: 0px;
+	margin-bottom: 35px;
+}
+
+.row-no-margin {
+	margin-left: 0px;
+}
+
+.well-sm {
+	padding: 9px;
+	border-radius: 3px;
 }

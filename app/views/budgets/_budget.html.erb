@@ -16,7 +16,10 @@
 	</div>
 	<div class="col-md-12">
 		<span class="budget-edit">
-			<%= link_to "Edit Budget", edit_budget_path, class: "btn" %>
+			<%= link_to "Edit", edit_budget_path, class: "btn btn-warning" %>
+			<%= link_to "Delete", budget, method: :delete, 
+									  	  data: { confirm: 'Are you sure?' }, 
+										  class: "btn btn-danger" %>
 		</span>
 	</div>
 </div>

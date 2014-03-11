@@ -4,5 +4,20 @@
 	<%= f.text_field :tag, :value=>(@income.tag), class: "center-text-field" %>
 	<%= f.label :amount %>
 	<%= f.text_field :amount, :value=>(number_with_precision(@income.amount, precision: 2)), class: "center-text-field" %>
-	<%= f.submit "Save", class: "btn btn-primary" %>
+	<%= f.label :date_occurred %>
+	<% if @income.date_occurred? %>
+		<!--<%= f.text_field :date_occurred, :value=>(@income.date_occurred), type: "text", id: "datepicker", class: "center-text-field" %>-->
+		<%= f.text_field :date_occurred, :value=>(@income.date_occurred), class: "center-text-field" %>
+	<% else %>
+		<!--<%= f.text_field :date_occurred, :value=>(Date.today), type: "text", id: "datepicker", class: "center-text-field" %>-->
+		<%= f.text_field :date_occurred, :value=>(Date.today), class: "center-text-field" %>
+	<% end %>
+	<% if new_income_page? %>
+		<%= f.submit "Save", class: "btn btn-primary" %>
+	<% else %>
+		<%= f.submit "Update", class: "btn btn-warning" %>
+		<%= link_to "Delete", @income, method: :delete, 
+											     data: { confirm: 'Income will be permanently deleted.' }, 
+											     class: "btn btn-danger" %>
+	<% end %>
 <% end %>

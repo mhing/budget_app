@@ -3,7 +3,8 @@
 <div class="row">
 	<%= render 'layouts/budget_header' %>
 	<div class="center hero-unit-alternate-background top-space">
-		<div class="row">
+		<div class="row row-no-margin">
+			<%= render 'shared/net_worth' %>
 			<div class="col-xs-6">
 				<div class="row">
 					<%= link_to "+ Add Expense", new_expense_path, class: "btn btn-large" %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307025432) do
+ActiveRecord::Schema.define(version: 20140311003930) do
 
   create_table "budgets", force: true do |t|
     t.float    "amount"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20140307025432) do
     t.integer  "budget_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date_occurred"
   end
 
   add_index "incomes", ["budget_id", "created_at"], name: "index_incomes_on_budget_id_and_created_at"
