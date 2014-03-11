@@ -6,7 +6,7 @@
 	</div>
 	<div class="col-md-12">
 		<span class="budget-amount">
-			Amount: $<%= number_with_precision(budget.amount, precision: 2) %>
+			Amount: <%= number_to_currency(budget.amount, precision: 2) %>
 		</span>
 	</div>
 	<div class="col-md-12">

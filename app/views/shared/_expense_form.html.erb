@@ -17,7 +17,7 @@
 	<% else %>
 		<%= f.submit "Update", class: "btn btn-warning" %>
 		<%= link_to "Delete", @expense, method: :delete, 
-											     data: { confirm: 'Are you sure?' }, 
+											     data: { confirm: 'Expense will be permanently deleted.' }, 
 											     class: "btn btn-danger" %>
 	<% end %>
 <% end %>

@@ -1,3 +1,5 @@
-<div class="well well-sm net-worth-well">
-	-Expenses + Income = Net
-</div>
+<% if net_worth %>
+	<div class="well well-sm net-worth-well">
+		Net Worth: <span class="net-worth-red"><%= number_to_currency(expenses_total, precision: 2) %></span> + <span class="net-worth-green"><%= number_to_currency(incomes_total, precision: 2) %></span> = <span class="net-worth-black"><%= number_to_currency(net_worth, precision: 2) %></span>
+	</div>
+<% end %>

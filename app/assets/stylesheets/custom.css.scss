@@ -488,7 +488,7 @@ input {
 .incomes {
 	margin: 20px 0 0 0;
 	list-style: none;
-
+	
 	li {
 		padding: 5px 0 30px 0;
 		border-top: 1px solid #e8e8e8;
@@ -498,17 +498,24 @@ input {
 
 			&:hover {
 				color: white;
+				background-color: orange;
 			}
 		}
 	}
 }
 
+a.incomes:hover {
+	background-color: red;
+}
+
 .tag {
 	float: left;
+	display: block;
 }
 
 .amount {
 	float: right;
+	display: block;
 }
 
 .timestamp {
@@ -537,4 +544,16 @@ input {
 .well-sm {
 	padding: 9px;
 	border-radius: 3px;
+}
+
+.net-worth-red {
+	color: red;
+}
+
+.net-worth-black {
+	color: black;
+}
+
+.net-worth-green {
+	color: green;
 }

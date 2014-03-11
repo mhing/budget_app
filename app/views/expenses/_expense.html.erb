@@ -1,6 +1,6 @@
 <li>
 	<%= link_to edit_expense_path(expense) do %>
 		<span class="tag"><%= expense.tag %></span>
-		<span class="amount">$<%= number_with_precision(expense.amount, precision: 2) %></span>
+		<span class="amount"><%= number_to_currency(expense.amount, precision: 2) %></span>
 	<% end %>
 </li>

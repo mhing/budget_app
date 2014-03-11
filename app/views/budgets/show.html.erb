@@ -5,7 +5,8 @@
 	<div class="center hero-unit-alternate-background top-space">
 		<div class="row row-no-margin">
 			<%= render 'shared/net_worth' %>
-			<div class="col-xs-6">
+			<!-- Temporary comment is additional feature -->
+			<!-- <div class="col-xs-6"> -->
 				<div class="row">
 					<% if (@user.present?) && (@user.budget.present?)  %>	
 						<%= render @budget %>
@@ -13,10 +14,10 @@
 						<%= link_to "+ Add Budget", new_budget_path, class: "btn btn-large" %>
 					<% end %>
 				</div>
-			</div>
-			<div class="col-xs-6">
+			<!-- </div> -->
+<!-- 			<div class="col-xs-6">
 				Budget Overview
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>

@@ -1,6 +1,6 @@
 <li>
-	<%= link_to edit_income_path(income) do %>
+	<%= link_to edit_income_path(income), :class=>"incomes" do %>
 		<span class="tag"><%= income.tag %></span>
-		<span class="amount">$<%= number_with_precision(income.amount, precision: 2) %></span>
+		<span class="amount"><%= number_to_currency(income.amount, precision: 2) %></span>
 	<% end %>
 </li>
