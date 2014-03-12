@@ -3,6 +3,8 @@
 	<%= f.label :name %>
 	<%= f.text_field :name, :value=>(@budget.name), class: "center-text-field" %>
 	<%= f.label :amount %>
-	<%= f.text_field :amount, :value=>(number_with_precision(@budget.amount, precision: 2)), class: "center-text-field" %>
+	<%= f.text_field :amount, placeholder: "1000.00",
+							  :value=>(number_to_currency(@budget.amount, precision: 2)), 
+							  class: "center-text-field" %>
 	<%= f.submit "Save", class: "btn btn-primary" %>
 <% end %>

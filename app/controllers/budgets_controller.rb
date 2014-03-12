@@ -13,7 +13,7 @@ class BudgetsController < ApplicationController
 			redirect_to current_user
 		else
 			flash[:error] = "Error creating budget."
-			render 'static_pages/budget'
+			render 'new'
 		end
 	end
 
